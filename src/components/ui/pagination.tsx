@@ -76,14 +76,14 @@ function PaginationPrevious({
 }: React.ComponentProps<typeof PaginationLink>) {
   return (
     <PaginationLink
-      aria-label="Go to previous page"
+      aria-label="Aller à la page précédente"
       size="default"
       className={cn('gap-1 px-2.5 sm:pl-2.5', className)}
       isDisabled={isDisabled}
       {...props}
     >
       <ChevronLeftIcon />
-      <span className="hidden sm:block">Previous</span>
+      <span className="hidden sm:block">précédant</span>
     </PaginationLink>
   )
 }
@@ -95,13 +95,13 @@ function PaginationNext({
 }: React.ComponentProps<typeof PaginationLink>) {
   return (
     <PaginationLink
-      aria-label="Go to next page"
+      aria-label="Aller à la page suivante"
       size="default"
       className={cn('gap-1 px-2.5 sm:pr-2.5', className)}
       isDisabled={isDisabled}
       {...props}
     >
-      <span className="hidden sm:block">Next</span>
+      <span className="hidden sm:block">suivant</span>
       <ChevronRightIcon />
     </PaginationLink>
   )
@@ -119,7 +119,7 @@ function PaginationEllipsis({
       {...props}
     >
       <MoreHorizontalIcon className="size-4" />
-      <span className="sr-only">More pages</span>
+      <span className="sr-only">plus de yap (t'es sûr·e?)</span>
     </span>
   )
 }

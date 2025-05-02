@@ -24,7 +24,7 @@ const years = Object.keys(postsByYear).sort((a, b) => parseInt(b) - parseInt(a))
 ---
 
 <Layout>
-  <PageHead slot="head" title="Blog" />
+  <PageHead slot="head" title="le bla bla" />
   <!-- <Breadcrumbs
     items={[
       { label: 'Blog', href: '/blog', icon: 'lucide:archive' },
@@ -52,7 +52,7 @@ const years = Object.keys(postsByYear).sort((a, b) => parseInt(b) - parseInt(a))
   <PaginationComponent
     currentPage={page.currentPage}
     totalPages={page.lastPage}
-    baseUrl="/blog/"
+    baseUrl="/astro-blog/blog/"
     client:load
   />
 </Layout>
