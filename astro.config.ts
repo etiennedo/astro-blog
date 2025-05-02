@@ -21,7 +21,8 @@ import { pluginLineNumbers } from '@expressive-code/plugin-line-numbers'
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
-  site: 'https://astro-erudite.vercel.app',
+  site: 'https://etiennedo.github.io',
+  base: '/astro-blog',
   integrations: [
     expressiveCode({
       themes: ['github-light', 'github-dark'],
