@@ -34,14 +34,14 @@ const authors = await parseAuthors(post.data.authors ?? [])
   <section
     class="grid grid-cols-[minmax(0px,1fr)_min(calc(var(--breakpoint-md)-2rem),100%)_minmax(0px,1fr)] gap-y-6"
   >
-    <div class="col-start-2">
+    <!-- <div class="col-start-2">
       <Breadcrumbs
         items={[
           { href: '/blog', label: 'Blog', icon: 'lucide:archive' },
           { label: post.data.title, icon: 'lucide:file-text' },
         ]}
       />
-    </div>
+    </div> -->
     {
       post.data.image && (
         <Image

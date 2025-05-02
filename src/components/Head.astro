@@ -34,14 +34,26 @@ import Favicons from './Favicons.astro'
     media="(prefers-color-scheme: light)"
   />
 
-  <link rel="sitemap" href="/sitemap-index.xml" />
-  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="sitemap" href="/astro-blog/sitemap-index.xml" />
+  <link rel="manifest" href="/astro-blog/site.webmanifest" />
   <link
     rel="alternate"
     type="application/rss+xml"
     title={SITE.title}
     href={new URL('rss.xml', Astro.site)}
   />
+  <script is:inline>
+    function applyDarkTheme() {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    }
+  
+    // Apply dark theme on initial load
+    applyDarkTheme();
+  
+    // Reapply dark theme after Astro swaps content
+    document.addEventListener('astro:after-swap', applyDarkTheme);
+  </script>
 
   <Favicons />
   <ClientRouter />
