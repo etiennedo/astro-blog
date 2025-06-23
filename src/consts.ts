@@ -4,7 +4,7 @@ export const SITE: Site = {
   title: 'étienne',
   description:
     'Étienne Doré est un dev front-end qui a créé son blog avec le thème astro-erudite et Github Pages.',
-  href: 'https://https://etiennedo.github.io/astro-blog',
+  href: 'https://https://etiennedo.github.io/',
   author: 'etiennedo',
   locale: 'fr-CA',
   featuredPostCount: 2,
@@ -13,7 +13,7 @@ export const SITE: Site = {
 
 export const NAV_LINKS: SocialLink[] = [
   {
-    href: '/astro-blog/blog',
+    href: '/blog',
     label: 'articles',
   }
 ]

@@ -79,7 +79,7 @@ const authors = await parseAuthors(post.data.authors ?? [])
                       />
                       {author.isRegistered ? (
                         <Link
-                          href={`/astro-blog/authors/${author.id}`}
+                          href={`/authors/${author.id}`}
                           underline
                           class="text-foreground"
                         >
@@ -106,7 +106,7 @@ const authors = await parseAuthors(post.data.authors ?? [])
             post.data.tags && post.data.tags.length > 0 ? (
               post.data.tags.map((tag) => (
                 <a
-                  href={`/astro-blog/tags/${tag}`}
+                  href={`/tags/${tag}`}
                   class={badgeVariants({ variant: 'secondary' })}
                 >
                   <Icon name="lucide:hash" class="size-3" />

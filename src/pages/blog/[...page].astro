@@ -52,7 +52,7 @@ const years = Object.keys(postsByYear).sort((a, b) => parseInt(b) - parseInt(a))
   <PaginationComponent
     currentPage={page.currentPage}
     totalPages={page.lastPage}
-    baseUrl="/astro-blog/blog/"
+    baseUrl="/blog/"
     client:load
   />
 </Layout>
