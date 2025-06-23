@@ -1,0 +1,97 @@
+---
+title: "Pourquoi j'ai arrêté d'utiliser Zapier"
+description: Découvrez comment automatiser vos tâches monotones gratuitement avec GitHub Actions. Un guide complet pour remplacer Zapier et économiser des centaines de dollars par mois.
+date: 2025-06-21
+tags: []
+image: ''
+authors: ['etiennedo']
+---
+
+## TLDR
+
+- Remplace Zapier par des cron jobs avec des GitHub Actions gratuitement
+
+## C'est quoi l'automatisation de tâches
+
+Automatiser ses tâches, c'est juste de laisser un ordi faire ta job monotone. Ça te permet de te concentrer sur des projets plus importants que de l'entrée de donnée ou des calculs de dates simples.
+
+### Exemples de tâches à automatiser
+
+- La génération de centaines de codes promos et son import dans Shopify
+- Le calcul d'une date de livraison prévue en comptant un temps de production, puis la génération du bordereau de livraison.
+- La vérification de tâches faites par des employés et les notifier automatiquement par Teams le résultat de la vérification.
+
+## C'est quoi Zapier
+
+[Zapier](https://zapier.com/) est une plateforme no-code permettant d'automatiser des tâches. Zapier se connecte à des centaines d'applications et gère l'authentification et les transferts de données. Son modèle d'affaire est simple, il t'offre gratuitement le paramétrage dans un outil sans code et te charge à chaque tâche qu'il effectue.
+
+### Quand Zapier a sa place
+
+Dans une petite équipe qui possède un employé à l'aise avec la technologie et souhaite s'éviter un salaire supplémentaire, c'est évident que Zapier est une belle option. Également, quand l'entreprise n'a pas beaucoup de complexité dans ses tâches, puisqu'il faut utiliser les actions disponibles dans Zapier si on veut éviter de coder.
+
+### Pourquoi j'ai arrêté d'utiliser Zapier
+
+Pour l'utilisation que j'en faisais, Zapier coûte trop cher pour chaque automatisation et ne propose pas assez de personnalisation.
+
+### Tâches limitées
+
+Les tâches étant créées d'avance par Zapier, on n'a pas toujours la personnalisation nécessaire pour automatiser 100% d'un processus. À ce moment là, on doit passer par une option dans Zapier qui permet des appels aux API des applications. Le hic, c'est que ces appels demandent de coder nos requêtes. Tant qu'à coder la demande, on peut explorer comment coder la connexion également et s'éviter la taxe de Zapier sur chaque tâche, puisque la puissance demandée par la requête est loin de coûter ce que Zapier propose. 
+
+### Prix exorbitant
+
+J'ai principalement arrêté Zapier à cause du [prix](https://zapier.com/pricing). Il monte excessivement vite si on veut automatiser des tâches avec plusieurs étapes ou avec de nombreuses activations par jour. Voici un tableau récapitulatif de l'augmentation de prix pour le tier Professionnel (le moins cher de Zapier, avec les fonctionnalités de base).
+
+| Automatisations (tasks) par mois | Prix mensuel (CAD) |
+|----------------------------------|--------------------|
+| 100                              | $0                 |
+| 750                              | $41.67             |
+| 1 500                            | $81.28             |
+| 5 000                            | $185.48            |
+| 10 000                           | $268.85            |
+| 100 000                          | $1 019.12          |
+
+Pour donner un référant, une tâche équivaut à une action dans une automatisation. Si on veut, pour chaque commande d'un e-commerce, générer un bordereau de commande et l'imprimer, on aurant 3 tâches:
+1. Aller chercher les données de la commande
+2. Générer le bordereau avec les données de la commande
+3. Lancer l'impression
+
+Pour une commande par jour, ça se fait bien, mais dès qu'on arrive à par exemple 100 commandes par jour, on parle de plus de 250$ par mois. Ça c'est pour une seule automatisation!
+
+## Conclusion
+
+Même si Zapier peut sembler une excellente solution à première vue, son manque de flexibilité et surtout ses tarifs exorbitants peuvent vite devenir un frein majeur à l'automatisation complète de ton entreprise. Si, comme moi, tu commences à sentir que Zapier gruge inutilement ton budget tout en limitant ta créativité, sache que d’autres alternatives gratuites existent!
+
+Dans le prochain article, je te présente en détail GitHub Actions, une solution gratuite qui m’a permis de remplacer entièrement Zapier, tout en gagnant en personnalisation et en économie. Crois-moi, tu risques d’être agréablement surpris!
+
+## FAQ: Zapier, ses limites et ses alternatives
+
+### Est-ce que Zapier est vraiment no-code ?
+
+Oui, la promesse de Zapier, c’est de permettre d’automatiser des tâches sans coder. Par contre, dès que tu veux faire des choses un peu plus avancées ou connecter des applis qui ne sont pas 100% supportées, il faut souvent bidouiller avec des scripts ou des appels API.
+
+### Combien de tâches puis-je automatiser gratuitement avec Zapier ?
+
+Le forfait gratuit permet de faire 100 tâches par mois, ce qui est vite atteint si tu as plusieurs automatisations ou un peu de volume. Après, ça devient rapidement payant.
+
+### Est-ce que Zapier convient aux petites entreprises ?
+
+Oui… mais seulement si tes besoins sont simples et que tu n’as pas des centaines de tâches à automatiser chaque mois. Sinon, la facture monte vite !
+
+### Pourquoi Zapier devient-il si cher à l’usage ?
+
+Parce que tu payes chaque action exécutée. Plus tu automatises, plus tu payes. Et si tu veux des automatisations complexes (plusieurs étapes, filtres, connexions API…), tu dois prendre un plan plus cher.
+
+### Est-ce que Zapier permet vraiment d’automatiser tout ce que je veux ?
+
+Pas toujours. Les possibilités sont limitées aux « actions » et « triggers » prédéfinis. Si ton process sort des sentiers battus, il te faudra souvent ajouter du code, ou alors… changer d’outil.
+
+### Y a-t-il des alternatives gratuites ou moins chères que Zapier ?
+
+Oui, il existe d’autres solutions ! Par exemple : GitHub Actions (pour ceux qui aiment bidouiller un peu), n8n (open source), Pipedream, Make/Integromat, ou même IFTTT pour les trucs très simples.
+
+### Peut-on facilement quitter Zapier pour une autre solution ?
+
+Ça dépend de la complexité de tes automatisations. Mais pour la majorité des cas, tu peux migrer vers une solution plus flexible (et souvent gratuite) comme GitHub Actions, surtout si tu es à l’aise avec un peu de code.
+
+
+Si tu veux voir en détail comment je fais concrètement pour automatiser gratuitement, lis la suite avec l’article sur GitHub Actions !

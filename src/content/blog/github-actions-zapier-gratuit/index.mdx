@@ -1,0 +1,91 @@
+---
+title: "GitHub Actions : L’alternative gratuite à Zapier"
+description: "Comment remplacer Zapier pour automatiser des tâches sans frais."
+date: 2025-06-20
+tags: []
+image: ''
+authors: ['etiennedo']
+---
+
+## TLDR
+
+* GitHub Actions, c’est l’alternative gratuite à Zapier pour automatiser tes tâches.
+* Tu peux lancer des scripts sur les serveurs de GitHub sans rien payer, tant que tu restes dans les limites gratuites.
+* Il te suffit de combiner Actions, cron jobs, des API et des secrets pour remplacer (et dépasser) ce que tu faisais avec Zapier.
+* Plus besoin de payer un abonnement à chaque automatisation.
+
+## GitHub Actions : L’alternative gratuite à Zapier
+
+Dans l'article précédent, on a vu pourquoi Zapier peut vite devenir coûteux et limitatif. Heureusement, il existe une alternative puissante et gratuite : **GitHub Actions**. Dans cet article, je t’explique comment GitHub peut remplacer Zapier pour automatiser tes tâches sans frais.
+
+### Comment GitHub Actions automatise gratuitement ton travail
+
+GitHub Actions permet de faire quasiment tout ce que Zapier fait, gratuitement. Chaque jour, GitHub offre gratuitement jusqu’à **6 heures d’exécution par tâche**, avec **20 tâches pouvant tourner en même temps**. Ça fait beaucoup, surtout si tes automatisations sont légères ou moyennes.
+
+Pour y arriver, on utilise quatre technologies essentielles :
+
+1. [GitHub Actions](https://docs.github.com/fr/actions/about-github-actions)
+2. Les [cron jobs](https://www.hostinger.com/fr/tutoriels/cron-job)
+3. Les [GitHub secrets](https://docs.github.com/fr/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions)
+4. Les [API](https://fr.wikipedia.org/wiki/Interface_de_programmation) des applications que tu veux automatiser
+
+Voici une explication rapide et claire de chacun de ces éléments.
+
+### 1. GitHub Actions, c’est quoi exactement ?
+
+Les **GitHub Actions** sont des scripts exécutés directement sur les serveurs de GitHub. À la base, ils sont surtout utilisés par les développeurs pour formater automatiquement leur code ou effectuer des tests pour éviter les bugs.
+
+Combinés à des [**cron jobs**](/astro-blog/blog/cron-job-github-actions), les GitHub Actions deviennent très puissants pour exécuter n’importe quel type de script régulièrement, comme générer des rapports, créer des codes promos, ou envoyer des notifications.
+
+### 2. Cron job : programmer tes automatisations
+
+Un [**cron jobs**](/astro-blog/blog/cron-job-github-actions), c'est tout simplement un moyen de programmer automatiquement le lancement d'une tâche à intervalles réguliers sur un serveur. Tu peux dire à GitHub : "exécute ce script chaque jour à minuit", et GitHub s’en occupe automatiquement.
+
+Si tu veux savoir exactement comment programmer un cron job dans GitHub Actions, je t’ai préparé un tutoriel facile à suivre ici : [Comment utiliser un cron job avec GitHub Actions](/astro-blog/blog/cron-job-github-actions).
+
+### 3. API : parler aux applications facilement
+
+Une **API** (Interface de Programmation d'Application) permet à ton script de communiquer directement avec des applications (comme Shopify, Klaviyo, Google Sheets, etc.).
+
+Par exemple, avec une API, tu peux :
+
+* Lire des commandes depuis Shopify
+* Créer des tâches dans Asana
+* Envoyer des messages sur Slack ou Teams
+
+Pour utiliser une API, tu auras besoin d’une **Clé d’API** fournie par l’application, qui sert de mot de passe sécurisé pour accéder aux données et fonctionnalités.
+
+### 4. GitHub Secrets : sécuriser tes clés d’API
+
+Les **GitHub Secrets** sont une fonctionnalité très pratique qui permet de stocker tes clés d’API ou autres mots de passe de manière sécurisée dans GitHub. Ainsi, tu ne risques pas d’exposer accidentellement tes secrets dans ton code.
+
+Tu peux ensuite appeler ces secrets dans ton script via des alias comme `${{ secrets.API_KEY_METEO }}`.
+
+Pour configurer tes secrets, rends-toi simplement dans :
+
+**GitHub → ton dépôt → Settings → Secrets and variables → Actions → New repository secret**
+
+Tu peux ensuite ajouter toutes tes clés API ici (par exemple : `API_KEY_SHOPIFY`).
+
+## Conclusion
+
+En combinant ces quatre outils gratuits et puissants de GitHub, tu obtiens une solution complète et flexible pour automatiser gratuitement toutes sortes de tâches, sans devoir payer les frais élevés de Zapier.
+
+Dans le prochain article, on passe à la pratique avec un tutoriel complet, étape par étape, pour automatiser facilement une tâche concrète avec GitHub Actions.
+
+## FAQ : Questions fréquentes sur GitHub Actions
+
+### Est-ce que GitHub Actions est vraiment gratuit?
+Oui, c'est gratuit jusqu’à 6h par jour par workflow!
+
+### Je dois absolument savoir coder pour utiliser GitHub Actions?
+Un peu, oui. Tu peux commencer simplement en adaptant des modèles de scripts existants (comme ceux que je partage dans mes tutoriels).
+
+### Puis-je exécuter plusieurs automatisations en même temps?
+Oui! GitHub autorise jusqu’à 20 workflows simultanés.
+
+### Est-ce qu’il y a une limite au nombre de cron jobs que je peux planifier?
+Oui, c'est pas plus de 500 par 10 secondes. Ça devrait être assez pour la grande majorité des gens.
+
+### Est-ce possible d’utiliser GitHub Actions avec des outils comme Shopify, Google Sheets ou Slack?
+Oui, totalement. Tant que ces applications disposent d'une API accessible, tu peux les automatiser avec GitHub Actions.

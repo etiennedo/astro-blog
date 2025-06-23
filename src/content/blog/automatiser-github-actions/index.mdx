@@ -1,0 +1,151 @@
+---
+title: "Comment automatiser n’importe quelle tâche gratuitement avec GitHub Actions"
+description: "Utiliser GitHub Actions, NodeJS et les cron jobs pour automatiser des tâches."
+date: 2025-06-22
+tags: []
+image: ''
+authors: ['etiennedo']
+---
+
+## TLDR
+
+* Grâce aux GitHub Actions, on peut lancer des scripts
+* On donne un horaire aux scripts avec des [cron jobs](/astro-blog/blog/cron-job-github-actions)
+
+## Pré-requis
+
+Avant de commencer, assure-toi d’avoir :
+
+* Un compte GitHub gratuit
+* Node.js installé sur ton ordi (pour tester les scripts localement)
+* Un éditeur de texte (VSCode, par exemple)
+
+## Crée un nouveau dépôt GitHub
+
+* Va sur [github.com](https://github.com/) et clique sur **« Nouveau dépôt »**.
+* Donne-lui un nom, mets-le en privé ou public.
+* Ajoute un fichier `README.md` si tu veux, pour éviter qu’il soit vide.
+
+## Ajoute ton script principal
+
+* Dans ton dossier de projet, crée un fichier `mon_script.js`.
+* Exemple de script pour tester (récupère une tâche via une API publique) :
+
+```js
+// mon_script.js
+const axios = require('axios');
+
+console.log("🚀 Démarrage du script...");
+
+async function fetchData() {
+  try {
+    const response = await axios.get('https://jsonplaceholder.typicode.com/todos/1');
+    console.log("✅ Données récupérées :", response.data);
+  } catch (error) {
+    console.error("❌ Erreur lors de la requête :", error.message);
+  }
+}
+
+fetchData();
+```
+
+## Ajoute un `package.json` et les dépendances
+
+* Ouvre ton terminal dans le dossier du projet et tape :
+
+```bash
+npm init -y
+npm install axios
+```
+
+* Mets à jour ton dépôt avec ces fichiers.
+
+## Crée le workflow GitHub Actions
+
+* Dans ton projet, crée un dossier `.github/workflows`.
+* Ajoute un fichier : `automatisation.yaml`.
+* Mets-y ce contenu :
+
+```yaml
+name: Automatisation quotidienne en Node.js
+
+on:
+  schedule:
+    - cron: "0 0 * * *" # Tous les jours à minuit
+
+jobs:
+  run-node-script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v3
+
+      - name: Installer Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Installer les dépendances
+        run: npm install
+
+      - name: Exécuter le script principal
+        run: node mon_script.js
+```
+
+## Ajoute des secrets pour sécuriser tes clés API
+
+* Sur GitHub, va dans ton dépôt → **Settings** → **Secrets and variables** → **Actions**
+* Clique sur **New repository secret**
+* Ajoute, par exemple, `API_KEY` puis utilise-le dans ton code :
+
+```js
+const apiKey = process.env.API_KEY; // puis utilise apiKey dans tes requêtes
+```
+
+Et dans le YAML :
+
+```yaml
+      - name: Exécuter le script principal
+        env:
+          API_KEY: ${{ secrets.API_KEY }}
+        run: node mon_script.js
+```
+
+## Pousse tout sur GitHub et vérifie le résultat
+
+* Envoie tes fichiers sur GitHub (`git add .`, `git commit`, `git push`).
+* Va dans l’onglet **Actions** sur GitHub.
+  Tu verras le statut des exécutions, les logs détaillés, et si tout s’est bien passé.
+
+> **« Le principal avantage : tu vois en un clic tous les logs, les erreurs, et ce qui s’est passé dans ton script. »**
+
+## Exemples d’idées d’automatisations
+
+* Générer et importer des codes promos dans Shopify
+* Télécharger les commandes du jour et générer des rapports
+* Envoyer un rappel sur Teams/Slack si un employé n’a pas coché une tâche dans Google Sheets
+* Poster automatiquement sur un canal Discord ou Slack à partir d’un flux RSS
+
+## FAQ rapide
+
+### Est-ce que GitHub Actions est vraiment gratuit ?
+
+Oui, jusqu’à 2000 min/mois par workflow et 20 workflows en même temps.
+
+### Peut-on automatiser n’importe quoi ?
+
+Oui, tant que tu peux l’écrire en script et qu’il existe une API à appeler.
+
+### Je peux tester mon script avant de l’automatiser ?
+
+Bien sûr ! Lance simplement `node mon_script.js` en local avant de le pousser.
+
+### Et si j’ai un bug ?
+
+Tous les logs s’affichent dans l’onglet Actions de GitHub. Tu peux corriger et recommitter autant que tu veux.
+
+## Conclusion
+
+Avec ce tutoriel, tu viens de franchir le premier pas vers l’automatisation professionnelle sans payer un sou. Plus besoin de Zapier ou d’outils hors de prix : ta créativité est la seule limite.
+
+> **« Automatise d’abord ce qui te saoule le plus, et réinvestis le temps gagné là où tu as vraiment de la valeur ! »**
